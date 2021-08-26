@@ -10,6 +10,7 @@ class StartPage extends StatefulWidget {
 }
 
 int ind = 0;
+var lastIndex;
 
 class ExampleHive {
   void doSome() async {
@@ -80,7 +81,14 @@ class _StartPageState extends State<StartPage> {
                       height: 80,
                       width: 80,
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            var box = await Hive.openBox('MyTestBox');
+                            final a = await box.get('lastIndex');
+                            print(a);
+                            setState(() {
+                              ind = a;
+                            });
+                          },
                           icon: Icon(
                             Icons.volume_down_rounded,
                             size: 50,
@@ -102,11 +110,10 @@ class _StartPageState extends State<StartPage> {
                                 ind += 1;
                                 var box = await Hive.openBox('MyTestBox');
                                 await box.put('lastIndex', ind);
+                                lastIndex = box;
+                                // final a = box.get('lastIndex') as int?;
+                                // ind = ind;
 
-                                final a = box.get('lastIndex') as int?;
-                                ind = ind;
-
-                                print(a);
                                 // if (ind > 5) {
                                 //   Navigator.push(
                                 //       context,
