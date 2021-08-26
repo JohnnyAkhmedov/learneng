@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ingliz_tili/data.dart';
-import 'package:ingliz_tili/proverka.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+// import 'package:ingliz_tili/proverka.dart';
 
 class StartPage extends StatefulWidget {
   @override
@@ -9,10 +11,19 @@ class StartPage extends StatefulWidget {
 
 int ind = 0;
 
+class ExampleHive {
+  void doSome() async {
+    var box = await Hive.openBox('MyTestBox');
+    await box.put('name', 'Jonibek');
+    box.close();
+  }
+}
+
 class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     var engData = DataOfWords().words[ind]['word'];
     var uzData = DataOfWords().words[ind]['translation'];
     return Scaffold(
@@ -30,7 +41,7 @@ class _StartPageState extends State<StartPage> {
         borderOnForeground: true,
         elevation: 10,
         child: Container(
-          height: size.height * 0.70,
+          height: size.height * 0.60,
           width: size.width * 0.9,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,6 +67,9 @@ class _StartPageState extends State<StartPage> {
                       fontSize: 30,
                       fontWeight: FontWeight.w400),
                 ),
+                // SizedBox(
+                //   height: 5,
+                // ),
                 Column(
                   children: [
                     Container(
@@ -84,17 +98,24 @@ class _StartPageState extends State<StartPage> {
                         width: double.infinity,
                         child: InkWell(
                             onTap: () async {
-                              setState(() {
+                              setState(() async {
                                 ind += 1;
-                                if (ind > 5) {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => ProverkaPage(
-                                                data: DataOfWords().words,
-                                                ind: ind,
-                                              )));
-                                }
+                                var box = await Hive.openBox('MyTestBox');
+                                await box.put('lastIndex', ind);
+
+                                final a = box.get('lastIndex') as int?;
+                                ind = ind;
+
+                                print(a);
+                                // if (ind > 5) {
+                                //   Navigator.push(
+                                //       context,
+                                //       MaterialPageRoute(
+                                //           builder: (context) => ProverkaPage(
+                                //                 data: DataOfWords().words,
+                                //                 ind: ind,
+                                //               )));
+                                // }
                               });
                             },
                             hoverColor: Colors.white,
