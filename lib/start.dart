@@ -105,12 +105,12 @@ class _StartPageState extends State<StartPage> {
                         height: 70,
                         width: double.infinity,
                         child: InkWell(
-                            onTap: () async {
-                              setState(() async {
+                            onTap: () {
+                              setState(() {
                                 ind += 1;
-                                var box = await Hive.openBox('MyTestBox');
-                                await box.put('lastIndex', ind);
-                                lastIndex = box;
+                                // var box = await Hive.openBox('MyTestBox');
+                                // await box.put('lastIndex', ind);
+                                // lastIndex = box;
                                 // final a = box.get('lastIndex') as int?;
                                 // ind = ind;
 

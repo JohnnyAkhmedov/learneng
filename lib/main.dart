@@ -81,7 +81,7 @@ class Page extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 style: ButtonStyle(),
-                onPressed: () {},
+                onPressed: collectingData,
                 child: Container(
                     width: size.width * 0.8,
                     height: 50,
@@ -91,10 +91,28 @@ class Page extends StatelessWidget {
                       style: TextStyle(fontSize: 25),
                     ))),
               ),
-            )
+            ),
+            OutlinedButton(onPressed: comparingTheDates, child: Text('compare'))
           ])
         ]),
       ),
     );
   }
+}
+
+void comparingTheDates() async {
+  var box = Hive.box('lastDate');
+  final date = await box.get('lastDate');
+  if (DateTime.now().isAfter(date)) {
+    print('true');
+  } else {
+    print('false');
+  }
+}
+
+void collectingData() async {
+  var box = await Hive.openBox('lastDate');
+  box.put('lastDate', DateTime.now());
+  final a = await box.get('lastDate');
+  print(a);
 }
