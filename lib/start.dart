@@ -108,6 +108,8 @@ class _StartPageState extends State<StartPage> {
                             onTap: () {
                               setState(() {
                                 ind += 1;
+                                
+                                print(ind);
                                 // var box = await Hive.openBox('MyTestBox');
                                 // await box.put('lastIndex', ind);
                                 // lastIndex = box;

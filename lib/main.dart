@@ -4,6 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ingliz_tili/start.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ingliz_tili/trainings/first_variant.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,15 +18,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
         debugShowCheckedModeBanner: false,
         title: 'English',
         theme: ThemeData(
+          scaffoldBackgroundColor: Colors.blue,
           textTheme: GoogleFonts.aladinTextTheme(
             Theme.of(context).textTheme,
           ),
           primarySwatch: Colors.indigo,
         ),
-        home: Page());
+        home: FirstVariantTraining());
   }
 }
 
