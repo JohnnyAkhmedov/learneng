@@ -18,11 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
         debugShowCheckedModeBanner: false,
         title: 'English',
         theme: ThemeData(
-          scaffoldBackgroundColor: Colors.blue,
           textTheme: GoogleFonts.aladinTextTheme(
             Theme.of(context).textTheme,
           ),
