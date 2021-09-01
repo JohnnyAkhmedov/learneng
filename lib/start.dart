@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ingliz_tili/data.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:ingliz_tili/trainings/first_variant.dart';
 // import 'package:ingliz_tili/proverka.dart';
 
 class StartPage extends StatefulWidget {
@@ -108,7 +109,7 @@ class _StartPageState extends State<StartPage> {
                             onTap: () {
                               setState(() {
                                 ind += 1;
-                                
+
                                 print(ind);
                                 // var box = await Hive.openBox('MyTestBox');
                                 // await box.put('lastIndex', ind);
@@ -116,15 +117,13 @@ class _StartPageState extends State<StartPage> {
                                 // final a = box.get('lastIndex') as int?;
                                 // ind = ind;
 
-                                // if (ind > 5) {
-                                //   Navigator.push(
-                                //       context,
-                                //       MaterialPageRoute(
-                                //           builder: (context) => ProverkaPage(
-                                //                 data: DataOfWords().words,
-                                //                 ind: ind,
-                                //               )));
-                                // }
+                                if (ind > 5) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              TreiningStart()));
+                                }
                               });
                             },
                             hoverColor: Colors.white,
@@ -145,6 +144,61 @@ class _StartPageState extends State<StartPage> {
                 ),
               ]),
         ),
+      )),
+    );
+  }
+}
+
+class TreiningStart extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue,
+      body: SafeArea(
+          child: Center(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Text(
+              'Siz bugungilik 5 ta so\'zni yodlab bo\'ldingiz so\'zlar esingizda qolishi uchun mashqlarni bajaring',
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            ),
+          ),
+          Container(
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(15)),
+              height: 50,
+              width: 200,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FirstVariantTraining()));
+                },
+                child: Text('Mashqni boshlash',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blue,
+                    )),
+              )),
+          Container(
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(15)),
+              height: 50,
+              width: 200,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => StartPage()));
+                },
+                child: Text('So\'zlarni qaytarish',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blue,
+                    )),
+              ))
+        ]),
       )),
     );
   }

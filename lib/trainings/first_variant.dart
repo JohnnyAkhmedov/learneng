@@ -52,6 +52,12 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
         Answer(t_answer: a.words[6]['translation'].toString(), isRight: false),
         Answer(t_answer: a.words[1]['translation'].toString(), isRight: false),
       ]),
+      TraingTest(questWord: '', answers: [
+        Answer(t_answer: '', isRight: true),
+        Answer(t_answer: '', isRight: false),
+        Answer(t_answer: '', isRight: false),
+        Answer(t_answer: '', isRight: false),
+      ]),
     ];
   }
 
@@ -70,6 +76,7 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
             child: Container(
           width: size.width * 0.8,
           margin: EdgeInsets.all(30),
+          padding: EdgeInsets.only(bottom: 20),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(40),
@@ -86,6 +93,7 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
                 child: Text(traingTest[testIndex].questWord,
                     style: TextStyle(color: Colors.black, fontSize: 50)),
               ),
+              Spacer(),
               Column(
                 children: traingTest[testIndex]
                     .answers
@@ -98,23 +106,35 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
   }
 
   Widget _answers(Answer answer) {
-    return TextButton(
-      child: Text(
-        answer.t_answer,
-        style: TextStyle(fontSize: 30),
-      ),
-      onPressed: () {
-        if (answer.isRight == true) {
-          setState(() {
-            testIndex += 1;
-          });
-          if (testIndex > 4) {
-            print('trenirovka tugadi');
+    return Container(
+      // decoration: BoxDecoration(
+      //     color: Colors.bluerey,
+      //     borderRadius: BorderRadius.only(
+      //         bottomLeft: Radius.circular(20),
+      //         bottomRight: Radius.circular(20))),
+      width: double.infinity,
+      height: 50,
+      child: TextButton(
+        child: Text(
+          answer.t_answer,
+          style: TextStyle(fontSize: 30),
+        ),
+        onPressed: () {
+          if (answer.isRight == true) {
+            setState(() {
+              testIndex += 1;
+              if (testIndex > 4) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PovtorTrenirovki()));
+              } else {}
+            });
+          } else {
+            print('wrong');
           }
-        } else {
-          print('wrong');
-        }
-      },
+        },
+      ),
     );
   }
 }
@@ -129,4 +149,62 @@ class Answer {
   late String t_answer;
   late bool isRight;
   Answer({required this.t_answer, required this.isRight});
+}
+
+class PovtorTrenirovki extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Birinchi mashq tugadi!',
+                style: TextStyle(fontSize: 30, color: Colors.white),
+              ),
+              SizedBox(
+                height: 60,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                width: 200,
+                height: 50,
+                child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FirstVariantTraining()));
+                    },
+                    child: Text(
+                      'Mashqni qaytarish',
+                      style: TextStyle(fontSize: 20, color: Colors.blue),
+                    )),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15)),
+                  width: 200,
+                  height: 50,
+                  child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Davom etish',
+                        style: TextStyle(fontSize: 20, color: Colors.blue),
+                      )))
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
