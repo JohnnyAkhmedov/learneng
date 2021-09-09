@@ -18,39 +18,59 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
     // TODO: implement initState
     super.initState();
     traingTest = [
-      TraingTest(questWord: a.words[0]['word'].toString(), answers: [
-        Answer(t_answer: a.words[0]['translation'].toString(), isRight: true),
+      TraingTest(questWord: a.words[0][0]['word'].toString(), answers: [
         Answer(
-            t_answer: a.words[0 + 2]['translation'].toString(), isRight: false),
+            t_answer: a.words[0][0]['translation'].toString(), isRight: true),
         Answer(
-            t_answer: a.words[0 + 3]['translation'].toString(), isRight: false),
+            t_answer: a.words[0 + 2][0]['translation'].toString(),
+            isRight: false),
         Answer(
-            t_answer: a.words[0 + 4]['translation'].toString(), isRight: false),
-      ]),
-      TraingTest(questWord: a.words[1]['word'].toString(), answers: [
-        Answer(t_answer: a.words[0]['translation'].toString(), isRight: false),
-        Answer(t_answer: a.words[1]['translation'].toString(), isRight: true),
-        Answer(t_answer: a.words[4]['translation'].toString(), isRight: false),
+            t_answer: a.words[0 + 3][0]['translation'].toString(),
+            isRight: false),
         Answer(
-            t_answer: a.words[0 + 2]['translation'].toString(), isRight: false),
+            t_answer: a.words[0 + 4][0]['translation'].toString(),
+            isRight: false),
       ]),
-      TraingTest(questWord: a.words[2]['word'].toString(), answers: [
-        Answer(t_answer: a.words[1]['translation'].toString(), isRight: false),
-        Answer(t_answer: a.words[7]['translation'].toString(), isRight: false),
-        Answer(t_answer: a.words[8]['translation'].toString(), isRight: false),
-        Answer(t_answer: a.words[2]['translation'].toString(), isRight: true),
+      TraingTest(questWord: a.words[1][0]['word'].toString(), answers: [
+        Answer(
+            t_answer: a.words[0][0]['translation'].toString(), isRight: false),
+        Answer(
+            t_answer: a.words[1][0]['translation'].toString(), isRight: true),
+        Answer(
+            t_answer: a.words[4][0]['translation'].toString(), isRight: false),
+        Answer(
+            t_answer: a.words[0 + 2][0]['translation'].toString(),
+            isRight: false),
       ]),
-      TraingTest(questWord: a.words[3]['word'].toString(), answers: [
-        Answer(t_answer: a.words[10]['translation'].toString(), isRight: false),
-        Answer(t_answer: a.words[3]['translation'].toString(), isRight: true),
-        Answer(t_answer: a.words[5]['translation'].toString(), isRight: false),
-        Answer(t_answer: a.words[2]['translation'].toString(), isRight: false),
+      TraingTest(questWord: a.words[2][0]['word'].toString(), answers: [
+        Answer(
+            t_answer: a.words[1][0]['translation'].toString(), isRight: false),
+        Answer(
+            t_answer: a.words[7][0]['translation'].toString(), isRight: false),
+        Answer(
+            t_answer: a.words[8][0]['translation'].toString(), isRight: false),
+        Answer(
+            t_answer: a.words[2][0]['translation'].toString(), isRight: true),
       ]),
-      TraingTest(questWord: a.words[4]['word'].toString(), answers: [
-        Answer(t_answer: a.words[4]['translation'].toString(), isRight: true),
-        Answer(t_answer: a.words[10]['translation'].toString(), isRight: false),
-        Answer(t_answer: a.words[6]['translation'].toString(), isRight: false),
-        Answer(t_answer: a.words[1]['translation'].toString(), isRight: false),
+      TraingTest(questWord: a.words[3][0]['word'].toString(), answers: [
+        Answer(
+            t_answer: a.words[10][0]['translation'].toString(), isRight: false),
+        Answer(
+            t_answer: a.words[3][0]['translation'].toString(), isRight: true),
+        Answer(
+            t_answer: a.words[5][0]['translation'].toString(), isRight: false),
+        Answer(
+            t_answer: a.words[2][0]['translation'].toString(), isRight: false),
+      ]),
+      TraingTest(questWord: a.words[4][0]['word'].toString(), answers: [
+        Answer(
+            t_answer: a.words[4][0]['translation'].toString(), isRight: true),
+        Answer(
+            t_answer: a.words[10][0]['translation'].toString(), isRight: false),
+        Answer(
+            t_answer: a.words[6][0]['translation'].toString(), isRight: false),
+        Answer(
+            t_answer: a.words[1][0]['translation'].toString(), isRight: false),
       ]),
       TraingTest(questWord: '', answers: [
         Answer(t_answer: '', isRight: true),

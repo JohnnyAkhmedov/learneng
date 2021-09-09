@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:ingliz_tili/data.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+import 'package:ingliz_tili/data.dart';
 import 'package:ingliz_tili/trainings/first_variant.dart';
-// import 'package:ingliz_tili/proverka.dart';
 
 class StartPage extends StatefulWidget {
+  final indeks;
+
+  StartPage({
+    Key? key,
+    required this.indeks,
+  }) : super(key: key);
+
   @override
-  _StartPageState createState() => _StartPageState();
+  _StartPageState createState() => _StartPageState(indeks: indeks);
 }
 
-int ind = 0;
-var lastIndex;
-
-class ExampleHive {
-  void doSome() async {
-    var box = await Hive.openBox('MyTestBox');
-    await box.put('name', 'Jonibek');
-    box.close();
-  }
-}
+var ind = 0;
 
 class _StartPageState extends State<StartPage> {
+  int indeks;
+  _StartPageState({required this.indeks});
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    var engData = DataOfWords().words[ind]['word'];
-    var uzData = DataOfWords().words[ind]['translation'];
+    var engData = DataOfWords().words[indeks][ind]['word'];
+    var uzData = DataOfWords().words[indeks][ind]['translation'];
     return Scaffold(
       backgroundColor: Colors.lightBlue,
       appBar: AppBar(
@@ -111,18 +111,14 @@ class _StartPageState extends State<StartPage> {
                                 ind += 1;
 
                                 print(ind);
-                                // var box = await Hive.openBox('MyTestBox');
-                                // await box.put('lastIndex', ind);
-                                // lastIndex = box;
-                                // final a = box.get('lastIndex') as int?;
-                                // ind = ind;
 
-                                if (ind > 5) {
+                                if (ind > 4) {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              TreiningStart()));
+                                          builder: (context) => TreiningStart(
+                                                indeks: indeks,
+                                              )));
                                 }
                               });
                             },
@@ -150,6 +146,8 @@ class _StartPageState extends State<StartPage> {
 }
 
 class TreiningStart extends StatelessWidget {
+  int indeks;
+  TreiningStart({required this.indeks});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -189,8 +187,12 @@ class TreiningStart extends StatelessWidget {
               width: 200,
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => StartPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => StartPage(
+                                indeks: indeks,
+                              )));
                 },
                 child: Text('So\'zlarni qaytarish',
                     style: TextStyle(

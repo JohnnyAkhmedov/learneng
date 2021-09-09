@@ -72,11 +72,31 @@ class Page extends StatelessWidget {
                   width: 300,
                   height: 50,
                   child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => StartPage()));
+                      onPressed: () async {
+                        var box = await Hive.openBox('MyBox');
+                        var dateBox = await Hive.openBox('DateBox');
+                        var indeks = await box.get('MyBox');
+                        if (await dateBox.get('DateBox') == null) {
+                          dateBox.put('DateBox', DateTime.now());
+                        } else {
+                          print(await dateBox.get('DateBox'));
+                        }
+                        if (await box.get('MyBox') == null) {
+                          box.put('MyBox', 0);
+                        } else {
+                          indeks = indeks + 1;
+                          box.put('MyBox', indeks);
+                          print(await box.get('MyBox'));
+                        }
+                        if (DateTime.now()
+                            .isAfter(await dateBox.get('DateBox'))) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => StartPage(
+                                        indeks: indeks,
+                                      )));
+                        }
                       },
                       child: Center(
                         child: Text(
