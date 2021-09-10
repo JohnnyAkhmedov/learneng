@@ -4,7 +4,6 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ingliz_tili/start.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ingliz_tili/trainings/first_variant.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,7 +56,7 @@ class Page extends StatelessWidget {
             Text('5 ta so\'zni yodlashga tayyormisiz?',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 25,
+                    fontSize: 23,
                     fontWeight: FontWeight.w400)),
             SizedBox(
               height: size.height * 0.2,

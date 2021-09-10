@@ -112,7 +112,7 @@ class _StartPageState extends State<StartPage> {
 
                                 print(ind);
 
-                                if (ind > 4) {
+                                if (ind == 5) {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -145,6 +145,7 @@ class _StartPageState extends State<StartPage> {
   }
 }
 
+// ignore: must_be_immutable
 class TreiningStart extends StatelessWidget {
   int indeks;
   TreiningStart({required this.indeks});
@@ -156,9 +157,9 @@ class TreiningStart extends StatelessWidget {
           child: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(60.0),
             child: Text(
-              'Siz bugungilik 5 ta so\'zni yodlab bo\'ldingiz so\'zlar esingizda qolishi uchun mashqlarni bajaring',
+              'Siz bugungi kunlik 5 ta so\'zni yodlab bo\'ldingiz so\'zlar esingizda qolishi uchun mashqlarni bajaring!',
               style: TextStyle(fontSize: 20, color: Colors.white),
             ),
           ),
@@ -172,7 +173,9 @@ class TreiningStart extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => FirstVariantTraining()));
+                          builder: (context) => FirstVariantTraining(
+                                indeks: indeks,
+                              )));
                 },
                 child: Text('Mashqni boshlash',
                     style: TextStyle(
@@ -180,6 +183,7 @@ class TreiningStart extends StatelessWidget {
                       color: Colors.blue,
                     )),
               )),
+          SizedBox(height: 10),
           Container(
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(15)),

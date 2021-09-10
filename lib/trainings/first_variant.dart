@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
+
 import 'package:ingliz_tili/data.dart';
 
 var a = DataOfWords();
 
+// ignore: must_be_immutable
 class FirstVariantTraining extends StatefulWidget {
-  const FirstVariantTraining({Key? key}) : super(key: key);
+  int indeks;
+  FirstVariantTraining({required this.indeks});
 
   @override
-  _FirstVariantTrainingState createState() => _FirstVariantTrainingState();
+  _FirstVariantTrainingState createState() =>
+      _FirstVariantTrainingState(indeks: indeks);
 }
 
 class _FirstVariantTrainingState extends State<FirstVariantTraining> {
   late List<TraingTest> traingTest;
   late int testIndex = 0;
+  int indeks;
+  _FirstVariantTrainingState({required this.indeks});
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     traingTest = [
-      TraingTest(questWord: a.words[0][0]['word'].toString(), answers: [
+      TraingTest(questWord: a.words[indeks][0]['word'].toString(), answers: [
         Answer(
-            t_answer: a.words[0][0]['translation'].toString(), isRight: true),
+            t_answer: a.words[indeks][0]['translation'].toString(),
+            isRight: true),
         Answer(
             t_answer: a.words[0 + 2][0]['translation'].toString(),
             isRight: false),
@@ -31,18 +37,19 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
             t_answer: a.words[0 + 4][0]['translation'].toString(),
             isRight: false),
       ]),
-      TraingTest(questWord: a.words[1][0]['word'].toString(), answers: [
+      TraingTest(questWord: a.words[indeks][1]['word'].toString(), answers: [
         Answer(
             t_answer: a.words[0][0]['translation'].toString(), isRight: false),
         Answer(
-            t_answer: a.words[1][0]['translation'].toString(), isRight: true),
+            t_answer: a.words[indeks][1]['translation'].toString(),
+            isRight: true),
         Answer(
             t_answer: a.words[4][0]['translation'].toString(), isRight: false),
         Answer(
             t_answer: a.words[0 + 2][0]['translation'].toString(),
             isRight: false),
       ]),
-      TraingTest(questWord: a.words[2][0]['word'].toString(), answers: [
+      TraingTest(questWord: a.words[indeks][2]['word'].toString(), answers: [
         Answer(
             t_answer: a.words[1][0]['translation'].toString(), isRight: false),
         Answer(
@@ -50,21 +57,24 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
         Answer(
             t_answer: a.words[8][0]['translation'].toString(), isRight: false),
         Answer(
-            t_answer: a.words[2][0]['translation'].toString(), isRight: true),
+            t_answer: a.words[indeks][2]['translation'].toString(),
+            isRight: true),
       ]),
-      TraingTest(questWord: a.words[3][0]['word'].toString(), answers: [
+      TraingTest(questWord: a.words[indeks][3]['word'].toString(), answers: [
         Answer(
             t_answer: a.words[10][0]['translation'].toString(), isRight: false),
         Answer(
-            t_answer: a.words[3][0]['translation'].toString(), isRight: true),
+            t_answer: a.words[indeks][3]['translation'].toString(),
+            isRight: true),
         Answer(
             t_answer: a.words[5][0]['translation'].toString(), isRight: false),
         Answer(
             t_answer: a.words[2][0]['translation'].toString(), isRight: false),
       ]),
-      TraingTest(questWord: a.words[4][0]['word'].toString(), answers: [
+      TraingTest(questWord: a.words[indeks][4]['word'].toString(), answers: [
         Answer(
-            t_answer: a.words[4][0]['translation'].toString(), isRight: true),
+            t_answer: a.words[indeks][4]['translation'].toString(),
+            isRight: true),
         Answer(
             t_answer: a.words[10][0]['translation'].toString(), isRight: false),
         Answer(
@@ -127,11 +137,6 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
 
   Widget _answers(Answer answer) {
     return Container(
-      // decoration: BoxDecoration(
-      //     color: Colors.bluerey,
-      //     borderRadius: BorderRadius.only(
-      //         bottomLeft: Radius.circular(20),
-      //         bottomRight: Radius.circular(20))),
       width: double.infinity,
       height: 50,
       child: TextButton(
@@ -147,7 +152,9 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => PovtorTrenirovki()));
+                        builder: (context) => PovtorTrenirovki(
+                              indeks: indeks,
+                            )));
               } else {}
             });
           } else {
@@ -166,12 +173,19 @@ class TraingTest {
 }
 
 class Answer {
+  // ignore: non_constant_identifier_names
   late String t_answer;
   late bool isRight;
+  // ignore: non_constant_identifier_names
   Answer({required this.t_answer, required this.isRight});
 }
 
 class PovtorTrenirovki extends StatelessWidget {
+  int indeks;
+  PovtorTrenirovki({
+    Key? key,
+    required this.indeks,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -199,7 +213,8 @@ class PovtorTrenirovki extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => FirstVariantTraining()));
+                              builder: (context) =>
+                                  FirstVariantTraining(indeks: indeks)));
                     },
                     child: Text(
                       'Mashqni qaytarish',

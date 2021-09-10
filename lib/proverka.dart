@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ProverkaPage extends StatelessWidget {
   int ind;
   var data;
