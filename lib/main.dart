@@ -122,23 +122,11 @@ class Page extends StatelessWidget {
                           ),
                         )),
                   )),
-              OutlinedButton(
-                  onPressed: comparingTheDates, child: Text('compare'))
             ])
           ]),
         ),
       ),
     );
-  }
-}
-
-void comparingTheDates() async {
-  var box = Hive.box('lastDate');
-  final date = await box.get('lastDate');
-  if (DateTime.now().isAfter(date)) {
-    print('true');
-  } else {
-    print('false');
   }
 }
 

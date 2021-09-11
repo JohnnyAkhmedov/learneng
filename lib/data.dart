@@ -6,6 +6,7 @@ class DataOfWords {
       {'word': 'Good afternoon', 'translation': 'Hayrli kun', 'audioUrl': ''},
       {'word': 'Good evening', 'translation': 'Hayrli kech', 'audioUrl': ''},
       {'word': 'Good night', 'translation': 'Hayrli tun', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'Goodbye', 'translation': 'Hayr', 'audioUrl': ''},
@@ -13,6 +14,7 @@ class DataOfWords {
       {'word': 'Agree', 'translation': 'Rozi bo\'lmoq', 'audioUrl': ''},
       {'word': 'Angry', 'translation': 'Jahldor', 'audioUrl': ''},
       {'word': 'Arrive', 'translation': 'Yetib kelmoq', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'Bottom', 'translation': 'Past qism', 'audioUrl': ''},
@@ -20,6 +22,7 @@ class DataOfWords {
       {'word': 'Cruel', 'translation': 'Shavqatsiz', 'audioUrl': ''},
       {'word': 'Finally', 'translation': 'Vanihoyat', 'audioUrl': ''},
       {'word': 'Hide', 'translation': 'Berkinmoq,Berkitmoq', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'Lot', 'translation': 'Ko\'p', 'audioUrl': ''},
@@ -27,6 +30,7 @@ class DataOfWords {
       {'word': 'Moment', 'translation': 'lahza , payt', 'audioUrl': ''},
       {'word': 'pleased', 'translation': 'mamnun', 'audioUrl': ''},
       {'word': 'promise', 'translation': 'va\'da bermoq ', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'reply', 'translation': 'javob bermoq', 'audioUrl': ''},
@@ -34,6 +38,7 @@ class DataOfWords {
       {'word': 'trick', 'translation': 'aldamoq', 'audioUrl': ''},
       {'word': 'well', 'translation': 'qoniqarli', 'audioUrl': ''},
       {'word': 'bad', 'translation': 'yomon', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'respect', 'translation': 'xurmat qilmoq', 'audioUrl': ''},
@@ -41,6 +46,7 @@ class DataOfWords {
       {'word': 'ax', 'translation': 'bolta', 'audioUrl': ''},
       {'word': 'bunch', 'translation': 'bog\'lam,dasta', 'audioUrl': ''},
       {'word': 'chore', 'translation': 'yumush', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {
@@ -52,6 +58,7 @@ class DataOfWords {
       {'word': 'elbow', 'translation': 'tirsak', 'audioUrl': ''},
       {'word': 'grateful', 'translation': 'minnatdor', 'audioUrl': ''},
       {'word': 'irritate', 'translation': 'g\'azablantirmoq', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'kid', 'translation': 'bola,farzand', 'audioUrl': ''},
@@ -67,6 +74,7 @@ class DataOfWords {
       },
       {'word': 'persist', 'translation': 'o\'jarlik qilmoq', 'audioUrl': ''},
       {'word': 'pine', 'translation': 'qarag\'ay', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {
@@ -82,6 +90,7 @@ class DataOfWords {
         'audioUrl': ''
       },
       {'word': 'bloom', 'translation': 'gullamoq', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'compact', 'translation': 'qattiq', 'audioUrl': ''},
@@ -89,6 +98,7 @@ class DataOfWords {
       {'word': 'decay', 'translation': '', 'audioUrl': ''},
       {'word': 'dessert', 'translation': 'desert', 'audioUrl': ''},
       {'word': 'dip', 'translation': 'suvga botirib olmoq', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'distant', 'translation': 'uzoq yiroq,olis', 'audioUrl': ''},
@@ -104,6 +114,7 @@ class DataOfWords {
         'audioUrl': ''
       },
       {'word': 'leisure', 'translation': 'bo\'sh vaqt', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'mankind', 'translation': 'insoniyat', 'audioUrl': ''},
@@ -111,6 +122,7 @@ class DataOfWords {
       {'word': 'pillow', 'translation': 'yostiq', 'audioUrl': ''},
       {'word': 'pulse', 'translation': 'puls', 'audioUrl': ''},
       {'word': 'refresh', 'translation': 'yangilamoq', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'sneeze', 'translation': 'askirish', 'audioUrl': ''},
@@ -118,6 +130,7 @@ class DataOfWords {
       {'word': 'whistle;', 'translation': 'hushtak ovozi', 'audioUrl': ''},
       {'word': 'wool', 'translation': 'jun yung', 'audioUrl': ''},
       {'word': 'acquaint', 'translation': 'tanish', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'water', 'translation': 'suv', 'audioUrl': ''},
@@ -129,6 +142,7 @@ class DataOfWords {
       },
       {'word': 'fancy', 'translation': 'fanataziya', 'audioUrl': ''},
       {'word': 'flashlight', 'translation': 'fonar', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'hood', 'translation': 'kapyushon', 'audioUrl': ''},
@@ -144,6 +158,7 @@ class DataOfWords {
       },
       {'word': 'pirate', 'translation': 'qaroqchi', 'audioUrl': ''},
       {'word': 'publication', 'translation': 'nashr', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'riddle', 'translation': 'topishmoq', 'audioUrl': ''},
@@ -155,6 +170,7 @@ class DataOfWords {
       },
       {'word': 'shortly', 'translation': 'tezda hademay', 'audioUrl': ''},
       {'word': 'skeleton', 'translation': 'eng oz , eng kam', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'spoil', 'translation': 'buzmoq', 'audioUrl': ''},
@@ -162,6 +178,7 @@ class DataOfWords {
       {'word': 'thrill', 'translation': 'hayajon,shavq', 'audioUrl': ''},
       {'word': 'wicked', 'translation': 'axloqsiz,yovuz', 'audioUrl': ''},
       {'word': 'alert', 'translation': 'diqqatli,ziyrak', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {
@@ -177,6 +194,7 @@ class DataOfWords {
       {'word': 'bump', 'translation': 'urib olmoq', 'audioUrl': ''},
       {'word': 'chop', 'translation': 'to\'g\'ramoq,chopmoq', 'audioUrl': ''},
       {'word': 'closet', 'translation': 'devoriy shkaf', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'console', 'translation': 'xursand qilmoq', 'audioUrl': ''},
@@ -184,6 +202,7 @@ class DataOfWords {
       {'word': 'drawer', 'translation': 'g\'aladon', 'audioUrl': ''},
       {'word': 'endure', 'translation': 'chidamoq,sabr qilmoq', 'audioUrl': ''},
       {'word': 'execute', 'translation': 'qatl etmoq', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'gracp', 'translation': 'ushlamoq,tutmoq', 'audioUrl': ''},
@@ -191,6 +210,7 @@ class DataOfWords {
       {'word': 'foot', 'translation': 'oyoq', 'audioUrl': ''},
       {'word': 'skull', 'translation': 'bosh suyagi', 'audioUrl': ''},
       {'word': 'stir', 'translation': 'aylantirmoq', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'tap', 'translation': 'jo\'mrak', 'audioUrl': ''},

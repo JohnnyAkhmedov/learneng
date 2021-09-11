@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ingliz_tili/data.dart';
+import 'package:ingliz_tili/trainings/second_variant.dart';
 
 var a = DataOfWords();
 
@@ -105,8 +106,9 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
         body: Center(
             child: Container(
           width: size.width * 0.8,
+          height: size.height * 0.6,
           margin: EdgeInsets.all(30),
-          padding: EdgeInsets.only(bottom: 20),
+          padding: EdgeInsets.only(bottom: 40),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(40),
@@ -119,7 +121,7 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
                     style: TextStyle(color: Colors.black54, fontSize: 30)),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 10),
+                padding: const EdgeInsets.only(top: 20),
                 child: Text(traingTest[testIndex].questWord,
                     style: TextStyle(color: Colors.black, fontSize: 50)),
               ),
@@ -231,7 +233,13 @@ class PovtorTrenirovki extends StatelessWidget {
                   width: 200,
                   height: 50,
                   child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    SecondVariant(indeks: indeks)));
+                      },
                       child: Text(
                         'Davom etish',
                         style: TextStyle(fontSize: 20, color: Colors.blue),
