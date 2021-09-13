@@ -6,7 +6,7 @@ import 'package:ingliz_tili/data.dart';
 import 'package:ingliz_tili/trainings/first_variant.dart';
 
 class StartPage extends StatefulWidget {
-  final indeks;
+  int indeks;
 
   StartPage({
     Key? key,
@@ -20,6 +20,7 @@ class StartPage extends StatefulWidget {
 var ind = 0;
 
 class _StartPageState extends State<StartPage> {
+  int ind = 0;
   int indeks;
   _StartPageState({required this.indeks});
   @override

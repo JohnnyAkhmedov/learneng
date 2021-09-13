@@ -75,26 +75,34 @@ class Page extends StatelessWidget {
                         var box = await Hive.openBox('MyBox');
                         var dateBox = await Hive.openBox('DateBox');
                         var indeks = await box.get('MyBox');
-                        if (await dateBox.get('DateBox') == null) {
-                          dateBox.put('DateBox', DateTime.now());
-                        } else {
-                          print(await dateBox.get('DateBox'));
-                        }
-                        if (await box.get('MyBox') == null) {
+
+                        if (await box.get('MyBox') == null &&
+                            await dateBox.get('DateBox') == null) {
+                          dateBox.put('DateBox', DateTime.now().day);
                           box.put('MyBox', 0);
-                        } else {
-                          indeks = indeks + 1;
-                          box.put('MyBox', indeks);
-                          print(await box.get('MyBox'));
-                        }
-                        if (DateTime.now()
-                            .isAfter(await dateBox.get('DateBox'))) {
+                          indeks = await box.get('MyBox');
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => StartPage(
                                         indeks: indeks,
                                       )));
+                        } else {
+                          if (DateTime.now().day ==
+                              await dateBox.get('DateBox')) {
+                            print('Bugungi mashqni bajarib bo\'ldingiz');
+                          } else {
+                            indeks = indeks + 1;
+                            box.put('MyBox', indeks);
+                            print(await box.get('MyBox'));
+                            dateBox.put('DateBox', DateTime.now().day);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => StartPage(
+                                          indeks: indeks,
+                                        )));
+                          }
                         }
                       },
                       child: Center(

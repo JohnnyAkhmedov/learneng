@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ingliz_tili/data.dart';
+import 'package:ingliz_tili/start.dart';
 
 var data = DataOfWords();
 
@@ -61,7 +62,9 @@ class _SecondVariantState extends State<SecondVariant> {
                           print(word);
                         });
                       },
-                      decoration: InputDecoration(border: InputBorder.none),
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "So'zni kiriting"),
                     )),
                     width: size.width * 0.6,
                     height: size.height * 0.07,
@@ -77,10 +80,12 @@ class _SecondVariantState extends State<SecondVariant> {
                         setState(() {
                           ind += 1;
                           if (ind > 4) {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (ctx) {
-                              return Scaffold();
-                            }));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TreiningStart(
+                                          indeks: indeks,
+                                        )));
                           }
                         });
                       } else {
