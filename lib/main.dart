@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:audioplayers/audioplayers.dart';
+
 import 'package:ingliz_tili/start.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,6 +13,8 @@ void main() async {
 
   runApp(MyApp());
 }
+
+final player = AudioCache();
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -78,7 +82,7 @@ class Page extends StatelessWidget {
 
                         if (await box.get('MyBox') == null &&
                             await dateBox.get('DateBox') == null) {
-                          dateBox.put('DateBox', DateTime.now().day);
+                          dateBox.put('DateBox', DateTime.now().month);
                           box.put('MyBox', 0);
                           indeks = await box.get('MyBox');
                           Navigator.push(
@@ -88,14 +92,14 @@ class Page extends StatelessWidget {
                                         indeks: indeks,
                                       )));
                         } else {
-                          if (DateTime.now().day ==
+                          if (DateTime.now().month ==
                               await dateBox.get('DateBox')) {
                             print('Bugungi mashqni bajarib bo\'ldingiz');
                           } else {
                             indeks = indeks + 1;
                             box.put('MyBox', indeks);
                             print(await box.get('MyBox'));
-                            dateBox.put('DateBox', DateTime.now().day);
+                            dateBox.put('DateBox', DateTime.now().month);
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(

@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ingliz_tili/data.dart';
@@ -137,6 +138,7 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
         )));
   }
 
+  final player = AudioCache();
   Widget _answers(Answer answer) {
     return Container(
       width: double.infinity,
@@ -148,6 +150,8 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
         ),
         onPressed: () {
           if (answer.isRight == true) {
+            player.play('true.mp3',
+                mode: PlayerMode.LOW_LATENCY, stayAwake: false);
             setState(() {
               testIndex += 1;
               if (testIndex > 4) {
@@ -160,6 +164,8 @@ class _FirstVariantTrainingState extends State<FirstVariantTraining> {
               } else {}
             });
           } else {
+            player.play('false.mp3',
+                mode: PlayerMode.MEDIA_PLAYER, stayAwake: false);
             print('wrong');
           }
         },

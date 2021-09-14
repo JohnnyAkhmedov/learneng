@@ -17,6 +17,7 @@ class _SecondVariantState extends State<SecondVariant> {
   String word = '';
   int indeks;
   _SecondVariantState({required this.indeks});
+  final _wordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -56,6 +57,7 @@ class _SecondVariantState extends State<SecondVariant> {
                     padding: EdgeInsets.all(10),
                     child: Center(
                         child: TextFormField(
+                      controller: _wordController,
                       onChanged: (value) {
                         setState(() {
                           word = value;
@@ -78,6 +80,8 @@ class _SecondVariantState extends State<SecondVariant> {
                       if (word.toLowerCase() ==
                           data.words[indeks][ind]['word']!.toLowerCase()) {
                         setState(() {
+                          _wordController.clear();
+
                           ind += 1;
                           if (ind > 4) {
                             Navigator.push(
@@ -89,6 +93,10 @@ class _SecondVariantState extends State<SecondVariant> {
                           }
                         });
                       } else {
+                        setState(() {
+                          _wordController.clear();
+                        });
+
                         print('tapped');
                       }
                     },
