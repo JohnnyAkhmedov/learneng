@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'English',
         theme: ThemeData(
-          textTheme: GoogleFonts.aladinTextTheme(
+          textTheme: GoogleFonts.cardoTextTheme(
             Theme.of(context).textTheme,
           ),
           primarySwatch: Colors.indigo,
@@ -34,7 +35,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Page extends StatelessWidget {
+class Page extends StatefulWidget {
+  @override
+  State<Page> createState() => _PageState();
+}
+
+class _PageState extends State<Page> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -82,7 +88,7 @@ class Page extends StatelessWidget {
 
                         if (await box.get('MyBox') == null &&
                             await dateBox.get('DateBox') == null) {
-                          dateBox.put('DateBox', DateTime.now().month);
+                          dateBox.put('DateBox', DateTime.now());
                           box.put('MyBox', 0);
                           indeks = await box.get('MyBox');
                           Navigator.push(
@@ -92,8 +98,8 @@ class Page extends StatelessWidget {
                                         indeks: indeks,
                                       )));
                         } else {
-                          if (DateTime.now().month ==
-                              await dateBox.get('DateBox')) {
+                          if (DateTime.now()
+                              .isAfter(await dateBox.get('DateBox'))) {
                             print('Bugungi mashqni bajarib bo\'ldingiz');
                           } else {
                             indeks = indeks + 1;
