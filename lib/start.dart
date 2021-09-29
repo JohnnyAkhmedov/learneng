@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 import 'package:ingliz_tili/data.dart';
 import 'package:ingliz_tili/trainings/first_variant.dart';
+
+final player = AudioCache(
+  prefix: "assets/",
+);
 
 class StartPage extends StatefulWidget {
   int indeks;
@@ -29,6 +34,10 @@ class _StartPageState extends State<StartPage> {
 
     var engData = DataOfWords().words[indeks][ind]['word'];
     var uzData = DataOfWords().words[indeks][ind]['translation'];
+    player.load('${engData!.toLowerCase()}.mp3');
+
+    player.play('${engData.toLowerCase()}.mp3',
+        mode: PlayerMode.LOW_LATENCY, stayAwake: false);
     return Scaffold(
       backgroundColor: Colors.lightBlue,
       appBar: AppBar(
@@ -84,12 +93,9 @@ class _StartPageState extends State<StartPage> {
                       width: 80,
                       child: IconButton(
                           onPressed: () async {
-                            var box = await Hive.openBox('MyTestBox');
-                            final a = await box.get('lastIndex');
-                            print(a);
-                            setState(() {
-                              ind = a;
-                            });
+                            final file = await player.loadAsFile('what.mp3');
+                            final bytes = await file.readAsBytes();
+                            player.playBytes(bytes);
                           },
                           icon: Icon(
                             Icons.volume_down_rounded,
@@ -110,7 +116,10 @@ class _StartPageState extends State<StartPage> {
                             onTap: () {
                               setState(() {
                                 ind += 1;
-
+                                player.load('${engData.toLowerCase()}.mp3');
+                                player.play('${engData.toLowerCase()}.mp3',
+                                    mode: PlayerMode.LOW_LATENCY,
+                                    stayAwake: false);
                                 print(ind);
 
                                 if (ind == 5) {

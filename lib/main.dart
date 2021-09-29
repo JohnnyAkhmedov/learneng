@@ -15,7 +15,9 @@ void main() async {
   runApp(MyApp());
 }
 
-final player = AudioCache();
+final player = AudioCache(
+  prefix: "assets/",
+);
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -99,7 +101,7 @@ class _PageState extends State<Page> {
                                       )));
                         } else {
                           if (DateTime.now()
-                              .isAfter(await dateBox.get('DateBox'))) {
+                              .isBefore(await dateBox.get('DateBox'))) {
                             print('Bugungi mashqni bajarib bo\'ldingiz');
                           } else {
                             indeks = indeks + 1;

@@ -43,14 +43,14 @@ class DataOfWords {
     [
       {'word': 'We', 'translation': 'Biz', 'audioUrl': ''},
       {'word': 'Go', 'translation': 'Bormoq', 'audioUrl': ''},
-      {'word': 'Who?', 'translation': 'Kim?', 'audioUrl': ''},
+      {'word': 'Who', 'translation': 'Kim?', 'audioUrl': ''},
       {'word': 'Can', 'translation': 'Qila olmoq', 'audioUrl': ''},
       {'word': 'Get', 'translation': 'Olmoq', 'audioUrl': ''},
       {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
       {'word': 'Or', 'translation': 'Yoki', 'audioUrl': ''},
-      {'word': 'What?', 'translation': 'Nima?', 'audioUrl': ''},
+      {'word': 'What', 'translation': 'Nima?', 'audioUrl': ''},
       {'word': 'If', 'translation': 'Agar', 'audioUrl': ''},
       {'word': 'All', 'translation': 'Hamma', 'audioUrl': ''},
       {'word': 'My', 'translation': 'Mening', 'audioUrl': ''},

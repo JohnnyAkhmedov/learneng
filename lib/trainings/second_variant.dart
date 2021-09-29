@@ -185,9 +185,9 @@ class _TimePickState extends State<TimePick> {
     var iosDetails = IOSNotificationDetails();
     var genNotifs =
         NotificationDetails(android: androidDetails, iOS: iosDetails);
-    Time time = Time(15, 37, 0);
-    await fltrnotif.showDailyAtTime(0, 'Mashg\'ulot vaqti bo\'ldi',
-        "Yangi so\'zlarni yodlashga shoshiling ", time, genNotifs);
+    // DateTime time = TimeofDay();
+    // await fltrnotif.schedule(0, 'Mashg\'ulot vaqti bo\'ldi',
+    //     "Yangi so\'zlarni yodlashga shoshiling ", time, genNotifs);
     await fltrnotif.show(0, 'title', 'body', genNotifs);
   }
 
