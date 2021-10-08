@@ -2,10 +2,10 @@ class DataOfWords {
   var words = [
     [
       {'word': 'Hello', 'translation': 'Salom', 'audioUrl': ''},
-      {'word': 'Good morning', 'translation': 'Hayrli tong', 'audioUrl': ''},
-      {'word': 'Good afternoon', 'translation': 'Hayrli kun', 'audioUrl': ''},
-      {'word': 'Good evening', 'translation': 'Hayrli kech', 'audioUrl': ''},
-      {'word': 'Good night', 'translation': 'Hayrli tun', 'audioUrl': ''},
+      {'word': 'She', 'translation': 'U (ayol)', 'audioUrl': ''},
+      {'word': 'Say', 'translation': 'Gapirmoq', 'audioUrl': ''},
+      {'word': 'They', 'translation': 'Ular', 'audioUrl': ''},
+      {'word': 'But', 'translation': 'Lekn', 'audioUrl': ''},
       // {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
@@ -33,19 +33,11 @@ class DataOfWords {
       {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
-      {'word': 'She', 'translation': 'U (ayol)', 'audioUrl': ''},
-      {'word': 'Say', 'translation': 'Gapirmoq', 'audioUrl': ''},
-      {'word': 'They', 'translation': 'Ular', 'audioUrl': ''},
-      {'word': 'But', 'translation': 'Lekn', 'audioUrl': ''},
-      {'word': 'Bad', 'translation': 'Yomon', 'audioUrl': ''},
-      {'word': '', 'translation': '', 'audioUrl': ''},
-    ],
-    [
       {'word': 'We', 'translation': 'Biz', 'audioUrl': ''},
       {'word': 'Go', 'translation': 'Bormoq', 'audioUrl': ''},
       {'word': 'Who', 'translation': 'Kim?', 'audioUrl': ''},
       {'word': 'Can', 'translation': 'Qila olmoq', 'audioUrl': ''},
-      {'word': 'Get', 'translation': 'Olmoq', 'audioUrl': ''},
+      {'word': 'Bad', 'translation': 'Yomon', 'audioUrl': ''},
       {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
@@ -53,7 +45,7 @@ class DataOfWords {
       {'word': 'What', 'translation': 'Nima?', 'audioUrl': ''},
       {'word': 'If', 'translation': 'Agar', 'audioUrl': ''},
       {'word': 'All', 'translation': 'Hamma', 'audioUrl': ''},
-      {'word': 'My', 'translation': 'Mening', 'audioUrl': ''},
+      {'word': 'Get', 'translation': 'Olmoq', 'audioUrl': ''},
       {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
@@ -61,6 +53,14 @@ class DataOfWords {
       {'word': 'About', 'translation': 'Haqida', 'audioUrl': ''},
       {'word': 'Know', 'translation': 'Bilmoq', 'audioUrl': ''},
       {'word': 'Up', 'translation': 'Tepaga', 'audioUrl': ''},
+      {'word': 'My', 'translation': 'Mening', 'audioUrl': ''},
+      {'word': '', 'translation': '', 'audioUrl': ''},
+    ],
+    [
+      {'word': 'Movie', 'translation': '', 'audioUrl': ''},
+      {'word': 'Season', 'translation': '', 'audioUrl': ''},
+      {'word': 'Player', 'translation': '', 'audioUrl': ''},
+      {'word': 'Center', 'translation': '', 'audioUrl': ''},
       {'word': 'One', 'translation': 'Bir', 'audioUrl': ''},
       {'word': '', 'translation': '', 'audioUrl': ''},
     ],
@@ -441,10 +441,6 @@ class DataOfWords {
       {'word': '', 'translation': '', 'audioUrl': ''},
     ],
     [
-      {'word': 'Movie', 'translation': '', 'audioUrl': ''},
-      {'word': 'Season', 'translation': '', 'audioUrl': ''},
-      {'word': 'Player', 'translation': '', 'audioUrl': ''},
-      {'word': 'Center', 'translation': '', 'audioUrl': ''},
       {'word': 'Eat', 'translation': '', 'audioUrl': ''},
       {'word': '', 'translation': '', 'audioUrl': ''},
     ],

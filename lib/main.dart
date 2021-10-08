@@ -91,6 +91,7 @@ class _PageState extends State<Page> {
                         if (await box.get('MyBox') == null &&
                             await dateBox.get('DateBox') == null) {
                           box.put('MyBox', 0);
+                          dateBox.put('day', DateTime.now().day);
                           indeks = await box.get('MyBox');
                           Navigator.push(
                               context,
@@ -99,10 +100,16 @@ class _PageState extends State<Page> {
                                         indeks: indeks,
                                       )));
                         } else {
-                          if (DateTime.now().hour ==
+                          if (DateTime.now().day == await dateBox.get('day') &&
+                              DateTime.now().hour <=
                                   await dateBox.get('hour') &&
-                              DateTime.now().minute ==
+                              DateTime.now().minute <=
                                   await dateBox.get('minute')) {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return StartPage(indeks: indeks);
+                            }));
+                          } else {
                             indeks = indeks + 1;
                             box.put('MyBox', indeks);
                             // print(await box.get('MyBox'));
@@ -112,11 +119,6 @@ class _PageState extends State<Page> {
                                     builder: (context) => StartPage(
                                           indeks: indeks,
                                         )));
-                          } else {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return StartPage(indeks: indeks);
-                            }));
                           }
                         }
                       },

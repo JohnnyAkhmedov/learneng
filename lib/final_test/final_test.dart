@@ -1,9 +1,11 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 import 'package:ingliz_tili/data/data.dart';
+import 'package:ingliz_tili/main.dart';
 import 'package:ingliz_tili/tools/timepicker/timepicker.dart';
-import 'package:ingliz_tili/trainings/second_training/second_variant.dart';
+// import 'package:ingliz_tili/trainings/second_training/second_variant.dart';
 
 var a = DataOfWords();
 
@@ -138,24 +140,27 @@ class _FinalTestState extends State<FinalTest> {
           answer.t_answer,
           style: TextStyle(fontSize: 30),
         ),
-        onPressed: () {
+        onPressed: () async {
+          var dateBox = await Hive.openBox('DateBox');
+
           if (answer.isRight == true) {
             player.play('true.mp3',
                 mode: PlayerMode.LOW_LATENCY, stayAwake: false);
             setState(() {
               testIndex += 1;
               if (testIndex > 4) {
-                if (indeks == 0) {
+                if (indeks == 0 && dateBox.get('DateBox') == null) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => TimePick()));
+                } else {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (ctx) => TimePick()));
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PovtorTrenirovki(
+                                indeks: indeks,
+                              )));
                 }
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => PovtorTrenirovki(
-                              indeks: indeks,
-                            )));
-              } else {}
+              }
             });
           } else {
             player.play('false.mp3',
@@ -234,14 +239,11 @@ class PovtorTrenirovki extends StatelessWidget {
                   height: 50,
                   child: TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    SecondVariant(indeks: indeks)));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => MyApp()));
                       },
                       child: Text(
-                        'Davom etish',
+                        'Bosh sahifaga qaytish',
                         style: TextStyle(fontSize: 20, color: Colors.blue),
                       )))
             ],

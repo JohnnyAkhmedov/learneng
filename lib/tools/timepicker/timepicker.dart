@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:ingliz_tili/home_page/main.dart';
+import 'package:ingliz_tili/main.dart';
 import 'package:hive/hive.dart';
 
 class TimePick extends StatefulWidget {
@@ -51,7 +51,7 @@ class _TimePickState extends State<TimePick> {
           Padding(
             padding: const EdgeInsets.all(60.0),
             child: Text(
-              'Barakalla siz birinchi mashqdan o\'tdingiz endi so\'zlarni yod olish uchun o\'zingizga qulay bo\'lgan vaqtni tanlang.',
+              'Barakalla siz birinchi kunga belgilangan mashg\'ulotdan o\'tdingiz endi so\'zlarni yod olish uchun o\'zingizga qulay bo\'lgan vaqtni tanlang.',
               style: TextStyle(fontSize: 20, color: Colors.white),
             ),
           ),
